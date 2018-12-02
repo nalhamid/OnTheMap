@@ -8,22 +8,80 @@
 
 /* Begin PBXBuildFile section */
 		89C38A1F21934C9800A972B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C38A1E21934C9800A972B8 /* AppDelegate.swift */; };
-		89C38A2121934C9800A972B8 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C38A2021934C9800A972B8 /* FirstViewController.swift */; };
-		89C38A2321934C9800A972B8 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C38A2221934C9800A972B8 /* SecondViewController.swift */; };
+		89C38A2121934C9800A972B8 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C38A2021934C9800A972B8 /* MapViewController.swift */; };
+		89C38A2321934C9800A972B8 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C38A2221934C9800A972B8 /* TableViewController.swift */; };
 		89C38A2621934C9800A972B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89C38A2421934C9800A972B8 /* Main.storyboard */; };
 		89C38A2821934C9900A972B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89C38A2721934C9900A972B8 /* Assets.xcassets */; };
 		89C38A2B21934C9900A972B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89C38A2921934C9900A972B8 /* LaunchScreen.storyboard */; };
+		89C38A3821935C7300A972B8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C38A3721935C7300A972B8 /* LoginViewController.swift */; };
+		89C38A3A2194CD2500A972B8 /* BorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C38A392194CD2500A972B8 /* BorderedButton.swift */; };
+		89C38A3C2194EA5B00A972B8 /* hyperlinkText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C38A3B2194EA5B00A972B8 /* hyperlinkText.swift */; };
+		89C38A402198BF7800A972B8 /* UserLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C38A3F2198BF7800A972B8 /* UserLogin.swift */; };
+		89C38A432199FDE600A972B8 /* udacityApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C38A422199FDE600A972B8 /* udacityApi.swift */; };
+		89C38A45219B3C1D00A972B8 /* user.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C38A44219B3C1D00A972B8 /* user.swift */; };
+		89C38A47219B3C6300A972B8 /* LoginResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C38A46219B3C6300A972B8 /* LoginResults.swift */; };
+		89C38A49219B57DD00A972B8 /* StudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C38A48219B57DD00A972B8 /* StudentLocation.swift */; };
+		89C38A4D219E186500A972B8 /* parseApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C38A4C219E186500A972B8 /* parseApi.swift */; };
+		89C38A4F219EBA4300A972B8 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C38A4E219EBA4300A972B8 /* UserViewModel.swift */; };
+		89C38A51219F0EB800A972B8 /* StudentLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C38A50219F0EB800A972B8 /* StudentLocationViewModel.swift */; };
+		89C38A8C21A49E1A00A972B8 /* showAlertExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C38A8B21A49E1A00A972B8 /* showAlertExtension.swift */; };
+		89C38A9421A9D66A00A972B8 /* showHideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C38A9321A9D66A00A972B8 /* showHideKeyboard.swift */; };
+		89C38A9621AB1EB800A972B8 /* loginTextfieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C38A9521AB1EB800A972B8 /* loginTextfieldDelegate.swift */; };
+		89C38A9821AB26CE00A972B8 /* commonMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C38A9721AB26CE00A972B8 /* commonMethods.swift */; };
+		89C38A9A21AB276C00A972B8 /* setActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C38A9921AB276C00A972B8 /* setActivityIndicator.swift */; };
+		89C38A9E21AF1F9600A972B8 /* addLocationAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C38A9D21AF1F9600A972B8 /* addLocationAlert.swift */; };
+		89C38AA021AF271700A972B8 /* showAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C38A9F21AF271700A972B8 /* showAddView.swift */; };
+		89C38AA221AF39CC00A972B8 /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C38AA121AF39CC00A972B8 /* AddLocationViewController.swift */; };
+		89C38AA421AF3A1B00A972B8 /* FindLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C38AA321AF3A1B00A972B8 /* FindLocationViewController.swift */; };
+		89C38AA621B0442000A972B8 /* cancelAddLocaton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C38AA521B0442000A972B8 /* cancelAddLocaton.swift */; };
+		89C38AA821B092D500A972B8 /* tableMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C38AA721B092D500A972B8 /* tableMethods.swift */; };
+		89C38AAA21B094F100A972B8 /* mapMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C38AA921B094F100A972B8 /* mapMethods.swift */; };
+		89C38AB121B2B68C00A972B8 /* mapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C38AB021B2B68C00A972B8 /* mapViewDelegate.swift */; };
+		89C38AB321B2B79F00A972B8 /* tableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C38AB221B2B79F00A972B8 /* tableViewDelegate.swift */; };
+		89C38AB521B2BCAA00A972B8 /* populateMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C38AB421B2BCAA00A972B8 /* populateMap.swift */; };
+		89C38AB721B2C79400A972B8 /* addLocationTextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C38AB621B2C79400A972B8 /* addLocationTextfield.swift */; };
+		89C38AB921B2D77500A972B8 /* textfieldY.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C38AB821B2D77500A972B8 /* textfieldY.swift */; };
+		89C38ABB21B3394000A972B8 /* findLocationMapDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C38ABA21B3394000A972B8 /* findLocationMapDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		89C38A1B21934C9800A972B8 /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89C38A1E21934C9800A972B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		89C38A2021934C9800A972B8 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		89C38A2221934C9800A972B8 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		89C38A2021934C9800A972B8 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		89C38A2221934C9800A972B8 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		89C38A2521934C9800A972B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		89C38A2721934C9900A972B8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		89C38A2A21934C9900A972B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C38A2C21934C9900A972B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		89C38A3721935C7300A972B8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		89C38A392194CD2500A972B8 /* BorderedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderedButton.swift; sourceTree = "<group>"; };
+		89C38A3B2194EA5B00A972B8 /* hyperlinkText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hyperlinkText.swift; sourceTree = "<group>"; };
+		89C38A3F2198BF7800A972B8 /* UserLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLogin.swift; sourceTree = "<group>"; };
+		89C38A422199FDE600A972B8 /* udacityApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = udacityApi.swift; sourceTree = "<group>"; };
+		89C38A44219B3C1D00A972B8 /* user.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = user.swift; sourceTree = "<group>"; };
+		89C38A46219B3C6300A972B8 /* LoginResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResults.swift; sourceTree = "<group>"; };
+		89C38A48219B57DD00A972B8 /* StudentLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocation.swift; sourceTree = "<group>"; };
+		89C38A4C219E186500A972B8 /* parseApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = parseApi.swift; sourceTree = "<group>"; };
+		89C38A4E219EBA4300A972B8 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		89C38A50219F0EB800A972B8 /* StudentLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocationViewModel.swift; sourceTree = "<group>"; };
+		89C38A8B21A49E1A00A972B8 /* showAlertExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = showAlertExtension.swift; sourceTree = "<group>"; };
+		89C38A9321A9D66A00A972B8 /* showHideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = showHideKeyboard.swift; sourceTree = "<group>"; };
+		89C38A9521AB1EB800A972B8 /* loginTextfieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginTextfieldDelegate.swift; sourceTree = "<group>"; };
+		89C38A9721AB26CE00A972B8 /* commonMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = commonMethods.swift; sourceTree = "<group>"; };
+		89C38A9921AB276C00A972B8 /* setActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = setActivityIndicator.swift; sourceTree = "<group>"; };
+		89C38A9D21AF1F9600A972B8 /* addLocationAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addLocationAlert.swift; sourceTree = "<group>"; };
+		89C38A9F21AF271700A972B8 /* showAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = showAddView.swift; sourceTree = "<group>"; };
+		89C38AA121AF39CC00A972B8 /* AddLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
+		89C38AA321AF3A1B00A972B8 /* FindLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindLocationViewController.swift; sourceTree = "<group>"; };
+		89C38AA521B0442000A972B8 /* cancelAddLocaton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cancelAddLocaton.swift; sourceTree = "<group>"; };
+		89C38AA721B092D500A972B8 /* tableMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tableMethods.swift; sourceTree = "<group>"; };
+		89C38AA921B094F100A972B8 /* mapMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapMethods.swift; sourceTree = "<group>"; };
+		89C38AB021B2B68C00A972B8 /* mapViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapViewDelegate.swift; sourceTree = "<group>"; };
+		89C38AB221B2B79F00A972B8 /* tableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tableViewDelegate.swift; sourceTree = "<group>"; };
+		89C38AB421B2BCAA00A972B8 /* populateMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = populateMap.swift; sourceTree = "<group>"; };
+		89C38AB621B2C79400A972B8 /* addLocationTextfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addLocationTextfield.swift; sourceTree = "<group>"; };
+		89C38AB821B2D77500A972B8 /* textfieldY.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = textfieldY.swift; sourceTree = "<group>"; };
+		89C38ABA21B3394000A972B8 /* findLocationMapDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = findLocationMapDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +114,156 @@
 		89C38A1D21934C9800A972B8 /* OnTheMap */ = {
 			isa = PBXGroup;
 			children = (
-				89C38A1E21934C9800A972B8 /* AppDelegate.swift */,
-				89C38A2021934C9800A972B8 /* FirstViewController.swift */,
-				89C38A2221934C9800A972B8 /* SecondViewController.swift */,
-				89C38A2421934C9800A972B8 /* Main.storyboard */,
-				89C38A2721934C9900A972B8 /* Assets.xcassets */,
-				89C38A2921934C9900A972B8 /* LaunchScreen.storyboard */,
+				89C38A8A21A49DBF00A972B8 /* Extension */,
+				89C38A412199FD9000A972B8 /* Service */,
+				89C38A352193524F00A972B8 /* ViewModel */,
+				89C38A342193524300A972B8 /* View */,
+				89C38A322193521200A972B8 /* Model */,
+				89C38A362193529200A972B8 /* Support Files */,
 				89C38A2C21934C9900A972B8 /* Info.plist */,
 			);
 			path = OnTheMap;
+			sourceTree = "<group>";
+		};
+		89C38A322193521200A972B8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				89C38A3F2198BF7800A972B8 /* UserLogin.swift */,
+				89C38A44219B3C1D00A972B8 /* user.swift */,
+				89C38A46219B3C6300A972B8 /* LoginResults.swift */,
+				89C38A48219B57DD00A972B8 /* StudentLocation.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		89C38A342193524300A972B8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				89C38A2421934C9800A972B8 /* Main.storyboard */,
+				89C38A3E2196211F00A972B8 /* ViewConroller */,
+				89C38A3D219620DE00A972B8 /* CustomView */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		89C38A352193524F00A972B8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				89C38A4E219EBA4300A972B8 /* UserViewModel.swift */,
+				89C38A50219F0EB800A972B8 /* StudentLocationViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		89C38A362193529200A972B8 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				89C38A1E21934C9800A972B8 /* AppDelegate.swift */,
+				89C38A2921934C9900A972B8 /* LaunchScreen.storyboard */,
+				89C38A2721934C9900A972B8 /* Assets.xcassets */,
+			);
+			path = "Support Files";
+			sourceTree = "<group>";
+		};
+		89C38A3D219620DE00A972B8 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				89C38A392194CD2500A972B8 /* BorderedButton.swift */,
+				89C38A3B2194EA5B00A972B8 /* hyperlinkText.swift */,
+			);
+			path = CustomView;
+			sourceTree = "<group>";
+		};
+		89C38A3E2196211F00A972B8 /* ViewConroller */ = {
+			isa = PBXGroup;
+			children = (
+				89C38A2221934C9800A972B8 /* TableViewController.swift */,
+				89C38A2021934C9800A972B8 /* MapViewController.swift */,
+				89C38A3721935C7300A972B8 /* LoginViewController.swift */,
+				89C38AA121AF39CC00A972B8 /* AddLocationViewController.swift */,
+				89C38AA321AF3A1B00A972B8 /* FindLocationViewController.swift */,
+			);
+			path = ViewConroller;
+			sourceTree = "<group>";
+		};
+		89C38A412199FD9000A972B8 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				89C38A422199FDE600A972B8 /* udacityApi.swift */,
+				89C38A4C219E186500A972B8 /* parseApi.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		89C38A8A21A49DBF00A972B8 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				89C38AAB21B2B4C800A972B8 /* ViewControllerExtension */,
+				89C38AAC21B2B50800A972B8 /* LoginViewControllerExtension */,
+				89C38AAD21B2B58600A972B8 /* AddLocationViewControllerExtension */,
+				89C38AAE21B2B5AF00A972B8 /* TableViewControllerExtension */,
+				89C38AAF21B2B5E700A972B8 /* MapViewControllerExtension */,
+				89C38ABC21B3394F00A972B8 /* FindLocationViewControllerExtension */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		89C38AAB21B2B4C800A972B8 /* ViewControllerExtension */ = {
+			isa = PBXGroup;
+			children = (
+				89C38A9921AB276C00A972B8 /* setActivityIndicator.swift */,
+				89C38A8B21A49E1A00A972B8 /* showAlertExtension.swift */,
+				89C38A9D21AF1F9600A972B8 /* addLocationAlert.swift */,
+				89C38A9721AB26CE00A972B8 /* commonMethods.swift */,
+				89C38A9F21AF271700A972B8 /* showAddView.swift */,
+				89C38AB821B2D77500A972B8 /* textfieldY.swift */,
+				89C38A9321A9D66A00A972B8 /* showHideKeyboard.swift */,
+			);
+			path = ViewControllerExtension;
+			sourceTree = "<group>";
+		};
+		89C38AAC21B2B50800A972B8 /* LoginViewControllerExtension */ = {
+			isa = PBXGroup;
+			children = (
+				89C38A9521AB1EB800A972B8 /* loginTextfieldDelegate.swift */,
+			);
+			path = LoginViewControllerExtension;
+			sourceTree = "<group>";
+		};
+		89C38AAD21B2B58600A972B8 /* AddLocationViewControllerExtension */ = {
+			isa = PBXGroup;
+			children = (
+				89C38AA521B0442000A972B8 /* cancelAddLocaton.swift */,
+				89C38AB621B2C79400A972B8 /* addLocationTextfield.swift */,
+			);
+			path = AddLocationViewControllerExtension;
+			sourceTree = "<group>";
+		};
+		89C38AAE21B2B5AF00A972B8 /* TableViewControllerExtension */ = {
+			isa = PBXGroup;
+			children = (
+				89C38AA721B092D500A972B8 /* tableMethods.swift */,
+				89C38AB221B2B79F00A972B8 /* tableViewDelegate.swift */,
+			);
+			path = TableViewControllerExtension;
+			sourceTree = "<group>";
+		};
+		89C38AAF21B2B5E700A972B8 /* MapViewControllerExtension */ = {
+			isa = PBXGroup;
+			children = (
+				89C38AA921B094F100A972B8 /* mapMethods.swift */,
+				89C38AB021B2B68C00A972B8 /* mapViewDelegate.swift */,
+				89C38AB421B2BCAA00A972B8 /* populateMap.swift */,
+			);
+			path = MapViewControllerExtension;
+			sourceTree = "<group>";
+		};
+		89C38ABC21B3394F00A972B8 /* FindLocationViewControllerExtension */ = {
+			isa = PBXGroup;
+			children = (
+				89C38ABA21B3394000A972B8 /* findLocationMapDelegate.swift */,
+			);
+			path = FindLocationViewControllerExtension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +337,38 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				89C38A2321934C9800A972B8 /* SecondViewController.swift in Sources */,
+				89C38AA421AF3A1B00A972B8 /* FindLocationViewController.swift in Sources */,
+				89C38A4D219E186500A972B8 /* parseApi.swift in Sources */,
+				89C38A47219B3C6300A972B8 /* LoginResults.swift in Sources */,
+				89C38A49219B57DD00A972B8 /* StudentLocation.swift in Sources */,
+				89C38A9A21AB276C00A972B8 /* setActivityIndicator.swift in Sources */,
+				89C38A51219F0EB800A972B8 /* StudentLocationViewModel.swift in Sources */,
+				89C38AA821B092D500A972B8 /* tableMethods.swift in Sources */,
+				89C38A432199FDE600A972B8 /* udacityApi.swift in Sources */,
+				89C38A3A2194CD2500A972B8 /* BorderedButton.swift in Sources */,
+				89C38AB121B2B68C00A972B8 /* mapViewDelegate.swift in Sources */,
+				89C38AA021AF271700A972B8 /* showAddView.swift in Sources */,
+				89C38ABB21B3394000A972B8 /* findLocationMapDelegate.swift in Sources */,
+				89C38A9821AB26CE00A972B8 /* commonMethods.swift in Sources */,
+				89C38AB721B2C79400A972B8 /* addLocationTextfield.swift in Sources */,
+				89C38A3C2194EA5B00A972B8 /* hyperlinkText.swift in Sources */,
+				89C38A3821935C7300A972B8 /* LoginViewController.swift in Sources */,
+				89C38A2321934C9800A972B8 /* TableViewController.swift in Sources */,
+				89C38AA221AF39CC00A972B8 /* AddLocationViewController.swift in Sources */,
+				89C38AB521B2BCAA00A972B8 /* populateMap.swift in Sources */,
+				89C38AAA21B094F100A972B8 /* mapMethods.swift in Sources */,
+				89C38A9621AB1EB800A972B8 /* loginTextfieldDelegate.swift in Sources */,
 				89C38A1F21934C9800A972B8 /* AppDelegate.swift in Sources */,
-				89C38A2121934C9800A972B8 /* FirstViewController.swift in Sources */,
+				89C38A45219B3C1D00A972B8 /* user.swift in Sources */,
+				89C38A2121934C9800A972B8 /* MapViewController.swift in Sources */,
+				89C38A9E21AF1F9600A972B8 /* addLocationAlert.swift in Sources */,
+				89C38AA621B0442000A972B8 /* cancelAddLocaton.swift in Sources */,
+				89C38AB921B2D77500A972B8 /* textfieldY.swift in Sources */,
+				89C38A9421A9D66A00A972B8 /* showHideKeyboard.swift in Sources */,
+				89C38AB321B2B79F00A972B8 /* tableViewDelegate.swift in Sources */,
+				89C38A8C21A49E1A00A972B8 /* showAlertExtension.swift in Sources */,
+				89C38A402198BF7800A972B8 /* UserLogin.swift in Sources */,
+				89C38A4F219EBA4300A972B8 /* UserViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
