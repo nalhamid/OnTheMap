@@ -15,19 +15,12 @@ class parseApi {
     //set Parse API keys
     let applicationId = "QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr"
     let apiKey = "QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY"
-    // current user info
-    var loggedUser = StudentLocation()
-    // list of student location 
-    var studentList = StudentList()
-    // set default value to location exist
-    var locationExist = false
     //set all method types
     enum methodType : String {
         case get = "GET"
         case add = "POST"
         case update = "PUT"
     }
-    
     //shared instance
     class func sharedInstance() -> parseApi{
         struct Singleton {
@@ -40,7 +33,7 @@ class parseApi {
 // Mark: UdacityAPI methods
 extension parseApi {
     // Mark: add method
-    func get(_ query: String,completion: @escaping (StudentList, Bool)->()){
+    func get(_ query: String,completion: @escaping (StudentList, Bool, String)->()){
         //set url request
         let url = URL(string: baseURL + query)
         //set Url Request properaties
@@ -49,35 +42,45 @@ extension parseApi {
         request.addValue(applicationId, forHTTPHeaderField: "X-Parse-Application-Id")
         request.addValue(apiKey, forHTTPHeaderField: "X-Parse-REST-API-Key")
         //validate login by sending data
-        let task = URLSession.shared.dataTask(with: request ) { ( data, _, err)  in
+        let task = URLSession.shared.dataTask(with: request ) { ( data, response, error)  in
             DispatchQueue.main.async {
                 var results = StudentList()
-                var success = false
-                //check if the request success
-                if let err = err {
-                    print("Failed to get data from url:", err)
-                    success = false
+                var errorMessage : String = ""
+                //  check if the request have an error
+                guard (error == nil) else {
+                    errorMessage = "There was an error with your request: \(error!)"
+                    completion(results, false, errorMessage)
                     return
                 }
-                guard let data = data else { return }
-                
+                // check if the response successful (2XX response)
+                guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
+                    let code = (response as? HTTPURLResponse)?.statusCode
+                    errorMessage = "Your request was not successful. code: \(code!)"
+                    completion(results, false, errorMessage)
+                    return
+                }
+                // check if there any data returned
+                guard let data = data else {
+                    errorMessage = "No data was returned by the request!"
+                    completion(results, false, errorMessage)
+                    return
+                }
+                // parse data
                 do {
                     // parse resulting data
                     results  = try JSONDecoder().decode(StudentList.self, from: data)
-                    success = true
                 } catch let jsonErr {
-                    print("Failed to decode:", jsonErr)
-                    success = false
+                    errorMessage = "Failed to decode data. error: \(jsonErr)"
+                    completion(results, false, errorMessage)
                 }
                 // return results
-                completion(results,success)
+                completion(results, true, errorMessage)
             }
         }
         task.resume()
     }
-    
     // Mark: add method
-    func add(_ student: StudentLocation, completion: @escaping (StudentLocation, Bool)->()){
+    func add(_ student: StudentLocation, completion: @escaping (StudentLocation, Bool, String)->()){
         //set url request
         let url = URL(string: baseURL)
         //set Url Request properaties
@@ -90,35 +93,45 @@ extension parseApi {
         // parse login Authentication
         request.httpBody = try! JSONEncoder().encode(student)
         //validate login by sending data
-        let task = URLSession.shared.dataTask(with: request ) { ( data, _, err)  in
+        let task = URLSession.shared.dataTask(with: request ) { ( data, response, error)  in
             DispatchQueue.main.async {
-                var results : StudentLocation?
-                var success = false
-                //check if the request success
-                if let err = err {
-                    print("Failed to get data from url:", err)
-                    success = false
+                var results = StudentLocation()
+                var errorMessage : String = ""
+                //  check if the request have an error
+                guard (error == nil) else {
+                    errorMessage = "There was an error with your request: \(error!)"
+                    completion(results, false, errorMessage)
                     return
                 }
-                guard let data = data else { return }
-                
+                // check if the response successful (2XX response)
+                guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
+                    let code = (response as? HTTPURLResponse)?.statusCode
+                    errorMessage = "Your request was not successful. code: \(code!)"
+                    completion(results, false, errorMessage)
+                    return
+                }
+                // check if there any data returned
+                guard let data = data else {
+                    errorMessage = "No data was returned by the request!"
+                    completion(results, false, errorMessage)
+                    return
+                }
+                // parse data
                 do {
                     // parse resulting data
                     results  = try JSONDecoder().decode(StudentLocation.self, from: data)
-                    success = true
                 } catch let jsonErr {
-                    print("Failed to decode:", jsonErr)
-                    success = false
+                    errorMessage = "Failed to decode data. error: \(jsonErr)"
+                    completion(results, false, errorMessage)
                 }
                 // return results
-                completion(results ?? StudentLocation(),success)
+                completion(results, true, errorMessage)
             }
         }
         task.resume()
-    }
-    
+    } 
     // Mark: update method
-    func update(_ student: StudentLocation, completion: @escaping (StudentLocation, Bool)->()){
+    func update(_ student: StudentLocation, completion: @escaping (StudentLocation, Bool, String)->()){
         print(student.objectId!)
         //set url request
         let url = URL(string: baseURL + "/" + student.objectId!)
@@ -134,29 +147,39 @@ extension parseApi {
         // parse login Authentication
         request.httpBody = try! JSONEncoder().encode(updatedLocation)
         //validate login by sending data
-        let task = URLSession.shared.dataTask(with: request ) { ( data, _, err)  in
+        let task = URLSession.shared.dataTask(with: request ) { ( data, response, error)  in
             DispatchQueue.main.async {
-                var results : StudentLocation?
-                var success = false
-                //check if the request success
-                if let err = err {
-                    print("Failed to get data from url:", err)
-                    success = false
+                var results = StudentLocation()
+                var errorMessage : String = ""
+                //  check if the request have an error
+                guard (error == nil) else {
+                    errorMessage = "There was an error with your request: \(error!)"
+                    completion(results, false, errorMessage)
                     return
                 }
-                guard let data = data else { return }
-                
+                // check if the response successful (2XX response)
+                guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
+                    let code = (response as? HTTPURLResponse)?.statusCode
+                    errorMessage = "Your request was not successful. code: \(code!)"
+                    completion(results, false, errorMessage)
+                    return
+                }
+                // check if there any data returned
+                guard let data = data else {
+                    errorMessage = "No data was returned by the request!"
+                    completion(results, false, errorMessage)
+                    return
+                }
+                // parse data
                 do {
                     // parse resulting data and
                     results  = try JSONDecoder().decode(StudentLocation.self, from: data)
-                    success = true
                 } catch let jsonErr {
-                    print("Failed to decode:", jsonErr)
-                    success = false
+                    errorMessage = "Failed to decode data. error: \(jsonErr)"
+                    completion(results, false, errorMessage)
                 }
-                print(results!)
                 // return results
-                completion(results ?? StudentLocation(),success)
+                completion(results, true, errorMessage)
             }
         }
         task.resume()

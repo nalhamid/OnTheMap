@@ -13,28 +13,28 @@ class StudentLocationViewModel : NSObject{
     //initilize from user info
     func setInitUserData() {
         //dummy data
-        parseApi.sharedInstance().loggedUser = StudentLocation()
-        parseApi.sharedInstance().loggedUser.firstName = "flesh"
-        parseApi.sharedInstance().loggedUser.lastName = "turtle"
-        parseApi.sharedInstance().loggedUser.uniqueKey = udacityApi.sharedInstance().studentInformation.user!.key!
+        loggedUserDatasource.sharedInstance().loggedUser = StudentLocation()
+        loggedUserDatasource.sharedInstance().loggedUser.firstName = "flesh"
+        loggedUserDatasource.sharedInstance().loggedUser.lastName = "turtle"
+        loggedUserDatasource.sharedInstance().loggedUser.uniqueKey = loggedUserDatasource.sharedInstance().studentInformation.user!.key!
     }
     // Mark: getStudentLocationsList
-    func getStudentLocationsList(completion: @escaping (Bool)->()){
+    func getStudentLocationsList(completion: @escaping (Bool, String)->()){
         // get recent 100 student locations
-        parseApi.sharedInstance().get("?limit=100&order=-updatedAt"){ results, success in
+        parseApi.sharedInstance().get("?limit=100&order=-updatedAt"){ results, success, errorMessage in
             // check user json
             if(success){
                 self.saveList(studentList: results)
             }
-            completion(success)
+            completion(success, errorMessage)
         }
     }
     // Mark: getLoggedUserLocation
-    func getLoggedUserLocation (completion: @escaping (Bool)->()){
+    func getLoggedUserLocation (completion: @escaping (Bool, String)->()){
         // set query
         let query = "?where=%7B%22uniqueKey%22%3A%22" + self.getUserKey() + "%22%7D"
         // call get method
-        parseApi.sharedInstance().get(query){ results, success in
+        parseApi.sharedInstance().get(query){ results, success, errorMessage in
             var isExist = success
             if(success){
                 if (results.results.count > 0){
@@ -43,76 +43,76 @@ class StudentLocationViewModel : NSObject{
                     isExist = false
                 }
             }
-            completion(isExist)
+            completion(isExist, errorMessage)
         }
     }
     // Mark: addLocation
-    func addLocation(completion: @escaping (Bool)->()){
-        parseApi.sharedInstance().add(parseApi.sharedInstance().loggedUser){ results, success in
-            completion(success)
+    func addLocation(completion: @escaping (Bool, String)->()){
+        parseApi.sharedInstance().add(loggedUserDatasource.sharedInstance().loggedUser){ results, success, errorMessage in
+            completion(success, errorMessage)
         }
     }
     // Mark: updateLocation
-    func updateLocation (completion: @escaping (Bool)->()){
-        parseApi.sharedInstance().update(parseApi.sharedInstance().loggedUser){ results, success in
-            completion(success)
+    func updateLocation (completion: @escaping (Bool, String)->()){
+        parseApi.sharedInstance().update(loggedUserDatasource.sharedInstance().loggedUser){ results, success, errorMessage in
+            completion(success, errorMessage)
         }
     }
     // Mark: saveLocation
     func saveLocation(mapString: String, mediaURL: String,latitude: Float, longitude: Float){
-        parseApi.sharedInstance().loggedUser.mapString = mapString
-        parseApi.sharedInstance().loggedUser.mediaURL = mediaURL
-        parseApi.sharedInstance().loggedUser.latitude = latitude
-        parseApi.sharedInstance().loggedUser.longitude = longitude
+        loggedUserDatasource.sharedInstance().loggedUser.mapString = mapString
+        loggedUserDatasource.sharedInstance().loggedUser.mediaURL = mediaURL
+        loggedUserDatasource.sharedInstance().loggedUser.latitude = latitude
+        loggedUserDatasource.sharedInstance().loggedUser.longitude = longitude
     }
     // Mark: saveList
     func saveList (studentList : StudentList){
-        parseApi.sharedInstance().studentList = studentList
+        studentsDatasource.sharedInstance().studentList = studentList
     }
     // Mark: saveLoggedUser
     func saveLoggedUser (loggedUser : StudentLocation){
-        parseApi.sharedInstance().loggedUser = loggedUser
+        loggedUserDatasource.sharedInstance().loggedUser = loggedUser
     }
     // Mark: getUserKey
     func getUserKey() -> String {
-        return parseApi.sharedInstance().loggedUser.uniqueKey!
+        return loggedUserDatasource.sharedInstance().loggedUser.uniqueKey!
     }
     func getLocationList() -> [StudentLocation] {
-        return parseApi.sharedInstance().studentList.results
+        return studentsDatasource.sharedInstance().studentList.results
     }
     // Mark: refreshList
-    func refreshList(completion: @escaping (Bool)->()) {
-        self.getStudentLocationsList(){success in
-            completion(success)
+    func refreshList(completion: @escaping (Bool, String)->()) {
+        self.getStudentLocationsList(){success, errorMessage in
+            completion(success, errorMessage)
         }
     }
     // Mark: isUserLocationExist
-    func isUserLocationExist(completion: @escaping (Bool)->()){
+    func isUserLocationExist(completion: @escaping (Bool, String)->()){
         //get user json
-        self.getLoggedUserLocation{ success in
-            parseApi.sharedInstance().locationExist = success
-            completion(success)
+        self.getLoggedUserLocation{ success, errorMessage in
+            loggedUserDatasource.sharedInstance().locationExist = success
+            completion(success, errorMessage)
         }
     }
     // Mark: numberOfRowsInSection
     func numberOfRows() -> Int {
         // get number of students
-        return parseApi.sharedInstance().studentList.results.count
+        return studentsDatasource.sharedInstance().studentList.results.count
     }
     // Mark: titleForIndexPath
     func fullNameForIndexPath(_ indexPath: IndexPath) -> String {
         // get Student Name
-        let firstName = parseApi.sharedInstance().studentList.results[indexPath.row].firstName ?? ""
-        let lastName = parseApi.sharedInstance().studentList.results[indexPath.row].lastName ?? ""
+        let firstName = studentsDatasource.sharedInstance().studentList.results[indexPath.row].firstName ?? ""
+        let lastName = studentsDatasource.sharedInstance().studentList.results[indexPath.row].lastName ?? ""
         return firstName + "" + lastName
     }
     // Mark: linkForIndexPath
     func linkForIndexPath(_ indexPath: IndexPath) -> String {
         // get Student URL
-        return parseApi.sharedInstance().studentList.results[indexPath.row].mediaURL ?? "https://udacity.com"
+        return studentsDatasource.sharedInstance().studentList.results[indexPath.row].mediaURL ?? "https://udacity.com"
     }
     // Mark: getLocationState
     func getLocationState() -> Bool{
-        return parseApi.sharedInstance().locationExist
+        return loggedUserDatasource.sharedInstance().locationExist
     }
 }

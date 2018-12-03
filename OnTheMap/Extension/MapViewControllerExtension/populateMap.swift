@@ -19,9 +19,17 @@ extension MapViewController{
         var annotations = [MKPointAnnotation]()
         //loop student locations
         for studentLocation in studentsLocations {
+            // check latitude
+            guard let latitude = studentLocation.latitude else {
+                continue
+            }
+            // check longitude
+            guard let longitude = studentLocation.longitude else {
+                continue
+            }
             //set latitude and longitude
-            let lat = CLLocationDegrees(studentLocation.latitude!)
-            let long = CLLocationDegrees(studentLocation.longitude!)
+            let lat = CLLocationDegrees(latitude)
+            let long = CLLocationDegrees(longitude)
             //The lat and long are used to create a CLLocationCoordinates2D instance.
             let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
             //get student info

@@ -20,6 +20,8 @@ class FindLocationViewController: UIViewController {
     var pinCordinates : MKAnnotation!
     //view model connect
     var locationModel = StudentLocationViewModel()
+    // activity Indicator
+    let activityIndicator = UIActivityIndicatorView()
     // Mark: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +29,10 @@ class FindLocationViewController: UIViewController {
     // Mark: viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        //set Activity Indicator
+        setActivityIndicator(activityIndicator: activityIndicator)
+        //start Animating
+        activityIndicator.startAnimating()
         // clear previous annotations
         mapView.removeAnnotations(mapView.annotations)
         //call getCoordinate
@@ -35,9 +41,12 @@ class FindLocationViewController: UIViewController {
             if let err = err {
                 self.showAlertExtension(title: "Unable to find location", message: "couldn't find location. please try again.")
                 print(err)
+                self.activityIndicator.stopAnimating()
+                return
             }
             //add pin to the map
             self.addPinToMapView(pinLocation: pinCoordinate)
+            self.activityIndicator.stopAnimating()
         }
     }
     // Mark: finishBtnPressed
@@ -48,17 +57,17 @@ class FindLocationViewController: UIViewController {
         let LocationState = locationModel.getLocationState()
         if(LocationState){
             // update user location
-            locationModel.updateLocation{success in
+            locationModel.updateLocation{success, errorMessage in
                 if(!success){
-                    self.showAlertExtension(title: "Unable to add location", message: "couldn't find location. please try again.")
+                    self.showAlertExtension(title: "Unable to add location", message: errorMessage)
                 }
                 self.dismiss(animated: true, completion: nil)
             }
         } else {
             // add user location
-            locationModel.addLocation{success in
+            locationModel.addLocation{success, errorMessage in
                 if(!success){
-                    self.showAlertExtension(title: "Unable to add location", message: "couldn't find location. please try again.")
+                    self.showAlertExtension(title: "Unable to add location", message: errorMessage)
                 }
                 self.dismiss(animated: true, completion: nil)
             }

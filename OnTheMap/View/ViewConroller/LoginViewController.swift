@@ -52,7 +52,7 @@ class LoginViewController: UIViewController{
         //start Animating
         activityIndicator.startAnimating()
         //call login method
-        userViewModel.login{ success in
+        userViewModel.login{ success, errorMessage in
             DispatchQueue.main.async {
                 if(success){
                     // set login state
@@ -70,7 +70,7 @@ class LoginViewController: UIViewController{
                 } else {
                     self.activityIndicator.stopAnimating()
                     // show alert message
-                    self.showAlertExtension(title: "Login failed", message: "username or password entered is incorrect. Please try again")
+                    self.showAlertExtension(title: "Login failed", message: errorMessage)
                 }
             }
         }

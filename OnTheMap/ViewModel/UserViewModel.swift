@@ -9,13 +9,13 @@
 import Foundation
 // Mark: user View Model
 class UserViewModel :NSObject{
-    //link with model and api
+    //link with model
     var userLogin : UserLogin!
     var loginResults : LoginResults!
     
     // Mark:login function
-    func login(completion: @escaping (Bool)->()){
-        udacityApi.sharedInstance().login(self.userLogin){ results, success in
+    func login(completion: @escaping (Bool, String)->()){
+        udacityApi.sharedInstance().login(self.userLogin){ results, success, errorMessage in
             // check login json
             var getUserJson = success
             //check if the user login success and he is registered
@@ -25,41 +25,41 @@ class UserViewModel :NSObject{
             }
             if(getUserJson){
                 //get user data
-                udacityApi.sharedInstance().udacitySession = (self.loginResults.session)!
+                loggedUserDatasource.sharedInstance().udacitySession = (self.loginResults.session)!
                 
-                self.getUser(self.loginResults.account!.key!){ getUserSuccess in
+                self.getUser(self.loginResults.account!.key!){ getUserSuccess, errorMessage in
                     DispatchQueue.main.async {
                         getUserJson = getUserSuccess
-                        completion(getUserSuccess)
+                        completion(getUserSuccess, errorMessage)
                     }
                 }
             }else{
-                completion(getUserJson)
+                completion(getUserJson, errorMessage)
             }
         }
     }
     // Mark:logout function
-    func logout(completion: @escaping (Bool)->())  {
-        udacityApi.sharedInstance().logout(){success in
+    func logout(completion: @escaping (Bool, String)->())  {
+        udacityApi.sharedInstance().logout(){success, errorMessage in
             if(success){
                 // earase user loggin info
                 self.userIsLoggedIn(false)
-                udacityApi.sharedInstance().udacitySession = nil
+                loggedUserDatasource.sharedInstance().udacitySession = nil
             }
-            completion(success)
+            completion(success, errorMessage)
         }
     }
     // Mark:get user function
-    func getUser(_ userId: String,completion: @escaping (Bool)->()){
-        udacityApi.sharedInstance().getUser(userId){ results, success in
+    func getUser(_ userId: String,completion: @escaping (Bool, String)->()){
+        udacityApi.sharedInstance().getUser(userId){ results, success, errorMessage in
             // check user json
             var getUserSuccess = success
             //check if the user data exist and he is registered
             if(getUserSuccess){
                 self.saveStudentInformation(studentInformation: results)
-                getUserSuccess =  udacityApi.sharedInstance().studentInformation.user!.registered ?? false
+                getUserSuccess =  loggedUserDatasource.sharedInstance().studentInformation.user!.registered ?? false
             }
-            completion(getUserSuccess)
+            completion(getUserSuccess, errorMessage)
         }
     }
     // Mark:save login results
@@ -68,7 +68,7 @@ class UserViewModel :NSObject{
     }
     // Mark:save user data
     func saveStudentInformation (studentInformation: StudentInformation){
-        udacityApi.sharedInstance().studentInformation = studentInformation
+        loggedUserDatasource.sharedInstance().studentInformation = studentInformation
     }
     // Mark: save login info
     func saveLogin (username: String, password: String) {
@@ -77,22 +77,22 @@ class UserViewModel :NSObject{
     }
     // Mark: userIsLoggedIn
     func userIsLoggedIn (_ isLoggedIn: Bool){
-        udacityApi.sharedInstance().isLoggedIn = isLoggedIn
+        loggedUserDatasource.sharedInstance().isLoggedIn = isLoggedIn
     }
     // Mark: getUserState
     func getUserState() -> Bool {
-        return udacityApi.sharedInstance().isLoggedIn
+        return loggedUserDatasource.sharedInstance().isLoggedIn
     }
     // Mark: getUserId
     func getUserId() -> String {
-        return udacityApi.sharedInstance().studentInformation.user!.key!
+        return loggedUserDatasource.sharedInstance().studentInformation.user!.key!
     }
     // Mark: getSessionId
     func getSessionId() -> String {
-        return udacityApi.sharedInstance().udacitySession!.id!
+        return loggedUserDatasource.sharedInstance().udacitySession!.id!
     }
     // Mark: getStudentInformation
     func getStudentInformation() -> StudentInformation {
-        return udacityApi.sharedInstance().studentInformation
+        return loggedUserDatasource.sharedInstance().studentInformation
     }
 }

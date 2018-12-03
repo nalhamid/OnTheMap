@@ -16,7 +16,7 @@ extension UIViewController {
     func addStudentLocationCommon(){
         // model connect
         let locationModel = StudentLocationViewModel()
-        locationModel.isUserLocationExist{exist in
+        locationModel.isUserLocationExist{exist, errorMessage in
             if(exist){
                 //show alert with overwrite function
                 self.addLocationAlert()
@@ -36,9 +36,9 @@ extension UIViewController {
         //start Animating
         activityIndicator.startAnimating()
         //call get list
-        locationModel.getStudentLocationsList{ success in
+        locationModel.getStudentLocationsList{ success, errorMessage in
                 if(!success){
-                    self.showAlertExtension(title: "Unable to Connect", message: "Unable to get data. please check your connection and try again")
+                    self.showAlertExtension(title: "Unable to Connect", message: errorMessage)
                 }
                 //stop Animating
                 activityIndicator.stopAnimating()
@@ -49,13 +49,13 @@ extension UIViewController {
     func logoutUserCommon(){
         let userViewModel = UserViewModel()
         //call login method
-        userViewModel.logout{ success in
+        userViewModel.logout{ success, errorMessage in
             DispatchQueue.main.async {
                 if(success){
                     self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
                     
                 } else {
-                    self.showAlertExtension(title: "Logout failed", message: "Please try again")
+                    self.showAlertExtension(title: "Logout failed", message: errorMessage)
                 }
             }
         }
