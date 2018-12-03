@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		896FFF2E21B5B849005CC1B6 /* loggedUserDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896FFF2D21B5B849005CC1B6 /* loggedUserDatasource.swift */; };
+		896FFF3021B5B8AD005CC1B6 /* studentsDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896FFF2F21B5B8AD005CC1B6 /* studentsDatasource.swift */; };
 		89C38A1F21934C9800A972B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C38A1E21934C9800A972B8 /* AppDelegate.swift */; };
 		89C38A2121934C9800A972B8 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C38A2021934C9800A972B8 /* MapViewController.swift */; };
 		89C38A2321934C9800A972B8 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C38A2221934C9800A972B8 /* TableViewController.swift */; };
@@ -45,6 +47,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		896FFF2D21B5B849005CC1B6 /* loggedUserDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loggedUserDatasource.swift; sourceTree = "<group>"; };
+		896FFF2F21B5B8AD005CC1B6 /* studentsDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = studentsDatasource.swift; sourceTree = "<group>"; };
 		89C38A1B21934C9800A972B8 /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89C38A1E21934C9800A972B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89C38A2021934C9800A972B8 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -95,6 +99,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		896FFF2C21B5B7E4005CC1B6 /* Datasource */ = {
+			isa = PBXGroup;
+			children = (
+				896FFF2D21B5B849005CC1B6 /* loggedUserDatasource.swift */,
+				896FFF2F21B5B8AD005CC1B6 /* studentsDatasource.swift */,
+			);
+			path = Datasource;
+			sourceTree = "<group>";
+		};
 		89C38A1221934C9800A972B8 = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +129,7 @@
 			children = (
 				89C38A8A21A49DBF00A972B8 /* Extension */,
 				89C38A412199FD9000A972B8 /* Service */,
+				896FFF2C21B5B7E4005CC1B6 /* Datasource */,
 				89C38A352193524F00A972B8 /* ViewModel */,
 				89C38A342193524300A972B8 /* View */,
 				89C38A322193521200A972B8 /* Model */,
@@ -341,6 +355,7 @@
 				89C38A4D219E186500A972B8 /* parseApi.swift in Sources */,
 				89C38A47219B3C6300A972B8 /* LoginResults.swift in Sources */,
 				89C38A49219B57DD00A972B8 /* StudentLocation.swift in Sources */,
+				896FFF3021B5B8AD005CC1B6 /* studentsDatasource.swift in Sources */,
 				89C38A9A21AB276C00A972B8 /* setActivityIndicator.swift in Sources */,
 				89C38A51219F0EB800A972B8 /* StudentLocationViewModel.swift in Sources */,
 				89C38AA821B092D500A972B8 /* tableMethods.swift in Sources */,
@@ -366,6 +381,7 @@
 				89C38AB921B2D77500A972B8 /* textfieldY.swift in Sources */,
 				89C38A9421A9D66A00A972B8 /* showHideKeyboard.swift in Sources */,
 				89C38AB321B2B79F00A972B8 /* tableViewDelegate.swift in Sources */,
+				896FFF2E21B5B849005CC1B6 /* loggedUserDatasource.swift in Sources */,
 				89C38A8C21A49E1A00A972B8 /* showAlertExtension.swift in Sources */,
 				89C38A402198BF7800A972B8 /* UserLogin.swift in Sources */,
 				89C38A4F219EBA4300A972B8 /* UserViewModel.swift in Sources */,
