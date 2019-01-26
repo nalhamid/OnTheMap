@@ -3,7 +3,7 @@ ios App that contains networks Api of Udacity. the user can login and view his\h
 
 ## How to run
 * Download or clone repo 
-* open PitchPerfect.xcodeproj file
+* open OnTheMap.xcodeproj file
 * run
 
 ## Api
